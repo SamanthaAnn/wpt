@@ -36,6 +36,7 @@ def find_browser(name):
     pid = app.processIdentifier()
     if pid == -1:
         return None
+
     return AXUIElementCreateApplication(pid)
 
 
@@ -117,12 +118,12 @@ class AXAPIExecutorImpl:
         :logger: Logger for logging errors.
         """
         self.product_name = product_name
-        self.root = find_browser(self.product_name)
+        # self.root = find_browser(self.product_name)
 
-        if not self.root:
-            self.logger.error(
-                f"Couldn't find browser {self.product_name} in accessibility API AX API. Accessibility API queries will not succeeded."
-            )
+        # if not self.root:
+        #     self.logger.error(
+        #         f"Couldn't find browser {self.product_name} in accessibility API AX API. Accessibility API queries will not succeeded."
+        #     )
 
     def test_accessibility_api(self, dom_id, test, api, url):
         """Execute a test of the accessibility API.
